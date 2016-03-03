@@ -33,7 +33,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'formtastic'
 gem 'cocoon'
-gem 'closure_tree'
+
+# use this fork of closure_tree until closure_tree#195 is fixed
+gem 'closure_tree', github: 'jayfredlund/closure_tree'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +45,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :development do

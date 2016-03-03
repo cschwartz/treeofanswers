@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :requests
+
+  def build_request(num_responses: 2)
+    request = self.requests.build
+    num_responses.times { request.responses.build }
+    request
+  end
 end

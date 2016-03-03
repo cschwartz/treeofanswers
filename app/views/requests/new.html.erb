@@ -1,0 +1,17 @@
+Foo?
+<%= semantic_form_for @request do |f| %>
+  <% f.inputs %>
+    <%= f.input :description %>
+<h3>Responses</h3>
+  <div id="responses">
+    <%= f.semantic_fields_for :responses do |response| %>
+      <%= render 'response_fields', f: response %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add respondent', f, :responses %>
+    </div>
+    <%= f.actions do %>
+      <%= f.actions :submit %>
+    <% end %>
+  </div>
+<% end %>

@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20160302145459) do
 
   create_table "nodes", force: :cascade do |t|
     t.text     "description"
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.integer  "parent_id"
-    t.integer  "type"
+    t.string   "type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "nodes", ["owner_id"], name: "index_nodes_on_owner_id"
+  add_index "nodes", ["user_id"], name: "index_nodes_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

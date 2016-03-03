@@ -89,4 +89,8 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include Rails::Controller::Testing::TestProcess
+  config.include Rails::Controller::Testing::TemplateAssertions
+  config.include Rails::Controller::Testing::Integration
 end
