@@ -37,6 +37,8 @@ gem 'cocoon'
 # use this fork of closure_tree until closure_tree#195 is fixed
 gem 'closure_tree', github: 'jayfredlund/closure_tree'
 
+gem 'bootstrap', '~> 4.0.0.alpha3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

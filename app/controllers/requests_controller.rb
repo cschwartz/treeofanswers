@@ -5,6 +5,10 @@ class RequestsController < ApplicationController
     @request = current_user.build_request(num_responses: 2)
   end
 
+  def index
+    @requests = current_user.requests
+  end
+
   def show
     @request = current_user.requests.find_by_id params[:id]
   end

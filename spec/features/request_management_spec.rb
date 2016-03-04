@@ -20,6 +20,26 @@ RSpec.describe 'New request', type: :feature do
         expect(page).to have_css '.description', 'My description'
       end
 
+      it "shows the email of the respondents" do
+        expect(page).to have_content 'bob@example.net'
+        expect(page).to have_content 'charlene@example.net'
+      end
+    end
+  end
+
+  describe 'index' do
+    before(:each) do
+      log_in_as alice
+    end
+
+    let!(:first_request) { create :request, user: alice, description: 'My description', respondents: [bob, charlene] }
+    let!(:second_request) { create :request, user: alice, description: 'My other description', respondents: [bob, charlene] }
+
+    it 'shows all requests on my requests page' do
+      click_link 'Requests'
+
+      expect(page).to have_link "Request", href: request_path(first_request)
+      expect(page).to have_link "Request", href: request_path(second_request)
     end
   end
 

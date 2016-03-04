@@ -1,0 +1,28 @@
+<ul class="requests">
+
+</ul>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+      <th>Participants</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each_with_index do |request, index| %>
+      <tr id="request-#{index}">
+        <td>
+          Status
+        </td>
+        <td>
+          <%= link_to truncate(request.description), request_path(request) %>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
