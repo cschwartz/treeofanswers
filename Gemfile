@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'formtastic'
 gem 'cocoon'
+gem 'formtastic-bootstrap'
 
 # use this fork of closure_tree until closure_tree#195 is fixed
 gem 'closure_tree', github: 'jayfredlund/closure_tree'
