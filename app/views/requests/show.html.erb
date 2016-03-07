@@ -1,11 +1,18 @@
-<div class="description">
-  <%= @request.description %>
-</div>
-
-<div class="responses">
-  <% @request.responses.each_with_index do |response, index| %>
-    <div class="response" id="response-<%= index %>">
-      <span class="respondent-email"><%=response.user.email %></span>
+<div id="request" data-id="<%= @request.id %>">
+    <div class="col-sm-4">
+      <div id="request-tree"></div>
     </div>
-  <% end %>
+    <div class="col-sm-8">
+      <h2>Request</h2>
+      <div class="description">
+        <blockquote class="blockquote">
+          <%= @request.description %>
+        </blockquote>
+      </div>
+      <h2>Response</h2>
+      <div class="response" id="response">
+
+      </div>
+    </div>
+  </div>
 </div>

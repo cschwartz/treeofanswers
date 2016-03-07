@@ -34,11 +34,13 @@ gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'formtastic'
 gem 'cocoon'
 gem 'formtastic-bootstrap'
+gem 'browserify-rails'
 
 # use this fork of closure_tree until closure_tree#195 is fixed
 gem 'closure_tree', github: 'jayfredlund/closure_tree'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

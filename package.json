@@ -1,0 +1,13 @@
+{
+  "name": "treeofanswers",
+  "dependencies" : {
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "coffeeify": "~> 0.6",
+    "bootstrap-treeview": "~> 1.2.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  }
+}

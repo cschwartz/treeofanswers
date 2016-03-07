@@ -15,4 +15,7 @@
 @import "bootstrap";
 @import "home";
 @import "requests";
-@import "formtastic-bootstrap"
+@import "../../../node_modules/bootstrap-treeview/src/css/bootstrap-treeview";
+@import "formtastic-bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
