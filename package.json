@@ -1,6 +1,7 @@
 {
   "name": "treeofanswers",
   "dependencies" : {
+    "bower": "~> 1.7.0",
     "browserify": "~> 10.2.4",
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
