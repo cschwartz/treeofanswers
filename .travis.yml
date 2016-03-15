@@ -6,6 +6,5 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bin/rails db:environment:set
   - npm install -g bower
-  - bower install
   - npm install
   - bundle exec rake
