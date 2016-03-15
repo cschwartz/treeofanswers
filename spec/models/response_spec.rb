@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Request, :type => :model, focus: true do
+RSpec.describe Request, :type => :model do
   let(:alice) { create :user }
   let!(:bob) { create :user, email: 'bob@example.net' }
   let!(:charlene) { create :user, email: 'charlene@example.net' }
