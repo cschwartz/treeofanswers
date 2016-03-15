@@ -59,6 +59,10 @@ group :development, :test do
   gem 'poltergeist'
 end
 
+group :test do
+  gem "codeclimate-test-reporter", require: nil
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
