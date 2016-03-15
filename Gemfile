@@ -54,6 +54,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
+  #until https://github.com/DatabaseCleaner/database_cleaner/pull/415 gets released
   gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner'
   gem 'rails-controller-testing'
   gem 'poltergeist'
