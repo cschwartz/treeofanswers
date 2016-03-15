@@ -1,24 +1,11 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get stated:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  * Clone this repository
+  * Run `bundle install` to install ruby dependencies
+  * Run `npm install` to install (frontend) js dependencies
+  * Migrate the database via 'bin/rake db:migrate'
+  * Prepare the test database using 'bin/rake db:test:prepare'
+  * Run the specs to ensure everything is working as intended using `bin/rake spec`
+  * Start a dev server using 'bin/rails s' and take a look at *localhost:3000`

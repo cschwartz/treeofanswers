@@ -1,0 +1,37 @@
+<div id="request" data-id="<%= @response.root.id %>">
+    <div class="col-sm-4">
+      <div id="request-tree"></div>
+    </div>
+    <div class="col-sm-8">
+      <h2>Request</h2>
+      <div class="description">
+        <blockquote class="blockquote">
+          <%= @response.root.description %>
+        </blockquote>
+      </div>
+      <h2>Response</h2>
+      <div class="response" id="response">
+      </div>
+      <h2>User response</h2>
+      <div class="response" id="user-response">
+        <%= semantic_form_for @response do |f| %>
+          <% f.inputs %>
+            <%= f.input :description, input_html: { class: 'autogrow', rows: 5, cols: 20 } %>
+            <h3>Delegated to</h3>
+            <ul>
+              <% @response.responses.each do |r| %>
+                <li><%= r.user.email %></li>
+              <% end %>
+            </ul>
+            <div class="links">
+              <%= link_to_add_association 'Add respondent', f, :responses %>
+            </div>
+            <%= f.actions do %>
+              <%= f.actions :submit %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

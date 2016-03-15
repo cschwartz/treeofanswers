@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302145459) do
+ActiveRecord::Schema.define(version: 20160307160335) do
 
   create_table "node_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20160302145459) do
     t.integer  "user_id"
     t.integer  "parent_id"
     t.string   "type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
   end
 
   add_index "nodes", ["user_id"], name: "index_nodes_on_user_id"

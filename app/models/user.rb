@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :requests
+  has_many :responses, inverse_of: :user
 
   def build_request(num_responses: 2)
     request = self.requests.build

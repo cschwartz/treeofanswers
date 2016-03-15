@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+      <th>Participants</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @responses.each_with_index do |response, index| %>
+      <tr id="response-#{index}">
+        <td>
+          Status
+        </td>
+        <td>
+          <%= link_to truncate(response.root.description), response_path(response) %>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

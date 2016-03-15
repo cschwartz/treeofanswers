@@ -20,7 +20,7 @@ RSpec.describe 'New request', type: :feature do
         expect(page).to have_css '.description', 'My description'
       end
 
-      it "shows the email of the respondents" do
+      it "shows the email of the respondents", js: true do
         expect(page).to have_content 'bob@example.net'
         expect(page).to have_content 'charlene@example.net'
       end
@@ -38,29 +38,17 @@ RSpec.describe 'New request', type: :feature do
     it 'shows all requests on my requests page' do
       click_link 'Requests'
 
-      expect(page).to have_link "Request", href: request_path(first_request)
-      expect(page).to have_link "Request", href: request_path(second_request)
-    end
-  end
-
-  def log_in_as(user)
-    visit '/'
-
-    click_link 'Log in'
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-  end
-
-  def create_request(description, user_emails)
-    click_link 'New request'
-    fill_in 'Description', with: description
-    user_emails.each_with_index do |email, index|
-      within "#response-#{index}" do fill_in 'Email', with: email end
+      expect(page).to have_link "My description", href: request_path(first_request)
+      expect(page).to have_link "My other description", href: request_path(second_request)
     end
 
-    click_button 'Create'
+    it 'shows required responses on the respondents responses page' do
+      switch_user_to bob
+
+      click_link 'Responses'
+      click_link 'My description'
+
+      expect(page).to have_content 'My description'
+    end
   end
 end

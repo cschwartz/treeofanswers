@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_self
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
 //= require_tree .
 
-var foo = require('../../../node_modules/bootstrap-treeview/src/js/bootstrap-treeview.js');
+window.Tether = require('../../../node_modules/tether')

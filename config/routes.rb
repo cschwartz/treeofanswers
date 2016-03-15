@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resource :home
   resources :requests
-  
+  resources :responses
+
   root to: 'home#index'
 end

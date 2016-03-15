@@ -1,7 +1,7 @@
 Foo?
 <%= semantic_form_for @request do |f| %>
   <% f.inputs %>
-    <%= f.input :description %>
+    <%= f.input :description, input_html: { class: 'autogrow', rows: 5, cols: 20 } %>
 <h3>Responses</h3>
   <div id="responses">
     <%= f.semantic_fields_for :responses do |response| %>

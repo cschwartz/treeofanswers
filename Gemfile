@@ -45,12 +45,13 @@ gem 'font-awesome-sass'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5.0.beta1'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
-  gem 'database_cleaner'
+  gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner'
   gem 'rails-controller-testing'
+  gem 'poltergeist'
 end
 
 group :development do

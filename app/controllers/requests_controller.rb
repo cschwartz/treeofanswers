@@ -10,7 +10,10 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = current_user.requests.find_by_id params[:id]
+    #TODO: make sure the user is allowed to read this, i.e.
+    #check if one of the responses of the user has a root
+    #with the given id
+    @request = Request.find_by_id params[:id]
   end
 
   def create
