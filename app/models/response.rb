@@ -1,5 +1,5 @@
 class Response < Node
-  before_validation :owner_from_email
+  before_validation :owner_from_email, :update_status
   attr_accessor :email
 
   belongs_to :user
@@ -11,5 +11,11 @@ class Response < Node
 
   def owner_from_email
     self.user = User.find_by_email @email unless @email.nil?
+  end
+
+  def update_status
+    if edited?
+
+    end
   end
 end
