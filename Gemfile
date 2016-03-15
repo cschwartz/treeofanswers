@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end if Bundler::VERSION < '2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
@@ -41,6 +45,9 @@ gem 'closure_tree', github: 'jayfredlund/closure_tree'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'font-awesome-sass'
 
+gem 'rollbar', '~> 2.8.1'
+gem 'oj', '~> 2.12.14'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -58,6 +65,7 @@ group :development, :test do
   gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner'
   gem 'rails-controller-testing'
   gem 'poltergeist'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 group :test do

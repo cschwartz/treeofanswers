@@ -21,3 +21,4 @@
 .byebug_history
 .lock-ClosureTreeNode-*
 node_modules/**/
+.env
