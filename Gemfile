@@ -66,6 +66,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'poltergeist'
   gem 'dotenv-rails', :require => 'dotenv/rails-now'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec'
 end
 
 group :test do

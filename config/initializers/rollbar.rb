@@ -9,9 +9,9 @@ Rollbar.configure do |config|
     config.enabled = false
   end
 
-  config.js_enabled = true
+  config.js_enabled = true if Rails.env.production?
   config.js_options = {
-    accessToken: "2b055a6a4d6d4824aba262f978b8c573",
+    accessToken: ENV['ROLLBAR_CLIENT_ACCESS_TOKEN'],
     captureUncaught: true,
     payload: {
       environment: "production"

@@ -8,7 +8,7 @@ class Response < Node
 
   enum status: superclass.statuses.keys + %w{edited answered delegated answered_and_delegated accepted}
 
-  accepts_nested_attributes_for :responses, reject_if: proc { |attributes| attributes['email'].blank? }
+  accepts_nested_attributes_for :responses, reject_if: -> attributes do attributes['email'].blank? end
 
   validates :description, presence: true, if: :no_respondents?, unless: :open?
   validates :responses, length: {minimum: 1}, if: :no_description?, unless: :open?
