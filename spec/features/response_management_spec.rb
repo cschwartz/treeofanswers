@@ -70,6 +70,20 @@ RSpec.describe 'New response', type: :feature do
     end
   end
 
+  describe 'do not delegate or answer' do
+    before :each do
+      visit '/'
+      click_link 'Responses'
+      click_link 'My description'
+
+      click_button 'Update Response'
+    end
+
+    it 'fails', js: true do
+      expect(page).to have_content 'Please answer the question or delegate it to someone who can.'
+    end
+  end
+
   def expand_response_node_of user
     find(:xpath, "//li[contains(., '#{user.email}')]").find(:css, '.expand-icon').click
   end

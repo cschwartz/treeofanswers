@@ -22,7 +22,7 @@ RSpec.describe Request, :type => :model do
 
   subject { request.responses.first }
 
-  describe "when delegating " do
+  describe "when delegating" do
     before(:each) do
       subject.update_attributes(response_attributes.without(:description))
     end
@@ -38,9 +38,13 @@ RSpec.describe Request, :type => :model do
     it 'has no description' do
       expect(subject.description).to be_nil
     end
+
+    it 'has a status of delegated' do
+      expect(subject.delegated?).to be true
+    end
   end
 
-  describe 'when answering ' do
+  describe 'when answering' do
     before(:each) do
       subject.update_attributes(response_attributes.without(:responses_attributes))
     end
@@ -56,11 +60,15 @@ RSpec.describe Request, :type => :model do
     it 'is not delegated' do
       expect(subject.responses).to be_empty
     end
+
+    it 'has a status of answered' do
+      expect(subject.answered?).to be true
+    end
   end
 
-  describe 'when delegating and answering ' do
+  describe 'when delegating and answering' do
     before(:each) do
-      subject.update_attributes(response_attributes)
+     subject.update_attributes(response_attributes)
     end
 
     it 'is valid' do
@@ -74,9 +82,13 @@ RSpec.describe Request, :type => :model do
     it 'has the new description' do
       expect(subject.description).to eq('My helpful description')
     end
+
+    it 'has a status of answered_and_delegated' do
+      expect(subject.answered_and_delegated?).to be true
+    end
   end
 
-  describe 'when failing to delegate or answer ', pending: 'get travis to run all tests first' do
+  describe 'when failing to delegate or answer' do
     it 'is invalid' do
       invalid_response_attributes = {
         status: 'edited',
