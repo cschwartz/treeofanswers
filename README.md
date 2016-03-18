@@ -1,6 +1,7 @@
 ## README
 
 [![Build Status](https://travis-ci.org/cschwartz/treeofanswers.svg?branch=master)](https://travis-ci.org/cschwartz/treeofanswers)
+[![Test Coverage](https://codeclimate.com/github/cschwartz/treeofanswers/badges/coverage.svg)](https://codeclimate.com/github/cschwartz/treeofanswers/coverage)
 
 To get stated:
 

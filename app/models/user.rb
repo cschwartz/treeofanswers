@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :responses, inverse_of: :user
 
   def build_request(num_responses: 2)
-    request = self.requests.build
+    request = requests.build
     num_responses.times { request.responses.build }
     request
   end

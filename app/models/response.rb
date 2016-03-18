@@ -6,12 +6,20 @@ class Response < Node
   belongs_to :user
   has_many :responses, foreign_key: 'parent_id'
 
-  enum status: superclass.statuses.keys + %w{edited answered delegated answered_and_delegated accepted}
+  enum status: superclass.statuses.keys + %w(edited
+                                             answered delegated
+                                             answered_and_delegated
+                                             accepted)
 
-  accepts_nested_attributes_for :responses, reject_if: -> attributes do attributes['email'].blank? end
+  accepts_nested_attributes_for :responses, reject_if: :response_has_mail?
 
-  validates :description, presence: true, if: :no_respondents?, unless: :open?
-  validates :responses, length: {minimum: 1}, if: :no_description?, unless: :open?
+  validates :description, presence: true,
+                          if: :no_respondents?,
+                          unless: :open?
+
+  validates :responses, length: { minimum: 1 },
+                        if: :no_description?,
+                        unless: :open?
 
   def owner_from_email
     self.user = User.find_by_email @email unless @email.nil?
@@ -37,5 +45,9 @@ class Response < Node
 
   def no_description?
     !description?
+  end
+
+  def response_has_mail?(attributes)
+    attributes['email'].blank?
   end
 end
