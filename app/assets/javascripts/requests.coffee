@@ -1,7 +1,8 @@
 bootstrap_treeview = require '../../../node_modules/bootstrap-treeview/src/js/bootstrap-treeview.js'
 
-ready = ->
+$(document).on 'turbolinks:load', ->
   id = $('#request').data('id')
+
   if id
     $.get "/requests/#{id}.json", (data) ->
       $('#request-tree').treeview
@@ -11,6 +12,3 @@ ready = ->
         collapseIcon: 'fa fa-minus'
         onNodeSelected: (event, data) ->
           $('#response').html(data.description)
-
-$(document).ready(ready)
-$(document).on('page:load', ready)

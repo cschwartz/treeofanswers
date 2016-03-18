@@ -80,15 +80,18 @@ RSpec.describe 'New response', type: :feature do
     end
 
     it 'fails', js: true do
-      expect(page).to have_content 'Please answer the question or delegate it to someone who can.'
+      expect(page).to have_content 'Please answer the question or delegate it.'
     end
   end
 
-  def expand_response_node_of user
-    find(:xpath, "//li[contains(., '#{user.email}')]").find(:css, '.expand-icon').click
+  def expand_response_node_of(user)
+    response_node_xpath = "//li[contains(., '#{user.email}')]"
+    expand_icon_css = '.expand-icon'
+
+    find(:xpath, response_node_xpath).find(:css, expand_icon_css).click
   end
 
   def select_response_by(user)
-    page.find(:xpath,"//*[text()='#{user.email}']").click
+    page.find(:xpath, "//li[contains(., '#{user.email}')]").click
   end
 end

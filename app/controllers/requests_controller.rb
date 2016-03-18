@@ -10,9 +10,9 @@ class RequestsController < ApplicationController
   end
 
   def show
-    #TODO: make sure the user is allowed to read this, i.e.
-    #check if one of the responses of the user has a root
-    #with the given id
+    # TODO: make sure the user is allowed to read this, i.e.
+    # check if one of the responses of the user has a root
+    # with the given id
     @request = Request.find_by_id params[:id]
   end
 
@@ -26,6 +26,10 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:description, responses_attributes: [:id, :email, :_destroy])
+    responses_attributes = {
+      responses_attributes: [:id, :email, :_destroy]
+    }
+
+    params.require(:request).permit(:description, responses_attributes)
   end
 end

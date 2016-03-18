@@ -16,12 +16,18 @@ class ResponsesController < ApplicationController
     if @response.save
       redirect_to @response, notice: 'Response successfully created'
     else
-      flash.now[:alert] = 'Please answer the question or delegate it to someone who can.'
+      alert_message = 'Please answer the question or delegate it.'
+      flash.now[:alert] = alert_message
       render 'show'
     end
   end
 
   def response_params
-    params.require(:response).permit(:description, :status, responses_attributes: [:id, :email, :_destroy])
+    response_attributes = {
+      responses_attributes: [:id, :email, :_destroy]
+    }
+
+    params.require(:response).permit(:description, :status,
+                                     response_attributes)
   end
 end

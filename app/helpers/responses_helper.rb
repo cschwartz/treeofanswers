@@ -1,6 +1,10 @@
 module ResponsesHelper
-  def status_for request
-    icon = case request.status
+  def status_for(request)
+    "fa fa-#{icon_name_for_status request.status}"
+  end
+
+  def icon_name_for_status(status)
+    case status
     when 'open'
       'question-circle'
     when 'delegated'
@@ -10,7 +14,5 @@ module ResponsesHelper
     when 'accepted'
       'check'
     end
-
-    "fa fa-#{icon}"
   end
 end
